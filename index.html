@@ -1,13 +1,1242 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>App</title>
-    <link rel="stylesheet" href="/assets/css/datacenter_kglanding_com_index-VXNAhmn3_ec5b4da7.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data Centers & Emerging Industries in El Dorado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #06060f;
+    --bg-card: #0c0d1e;
+    --bg-card-2: #10112a;
+    --accent: #5b7fff;
+    --accent-glow: rgba(91,127,255,0.25);
+    --accent-light: #7b9fff;
+    --text: #e8eaf6;
+    --text-muted: #8892b0;
+    --text-faint: rgba(255,255,255,0.35);
+    --border: rgba(255,255,255,0.07);
+    --border-accent: rgba(91,127,255,0.35);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.6;
+  }
+
+  a { color: var(--accent-light); }
+
+  /* ── HEADER ── */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+  }
+  .site-header.scrolled {
+    background: rgba(6,6,17,0.9);
+    backdrop-filter: blur(16px);
+    border-bottom-color: var(--border);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; max-width: 1280px; margin: 0 auto; padding: 0 24px;
+  }
+  .logo-link { display: flex; align-items: center; text-decoration: none; }
+  .logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 1rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #fff;
+  }
+  .logo-badge {
+    display: inline-block;
+    background: var(--accent); color: #fff;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 2px 6px; border-radius: 4px;
+    margin-right: 10px; vertical-align: middle;
+  }
+
+  .desktop-nav { display: flex; align-items: center; gap: 2px; }
+  .nav-link {
+    display: inline-flex; align-items: center;
+    padding: 6px 12px; border-radius: 8px;
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.2s, background 0.2s;
+    text-decoration: none; cursor: pointer; background: transparent; border: none;
+  }
+  .nav-link:hover { color: #fff; background: rgba(255,255,255,0.07); }
+  .nav-link.active { color: #fff; background: rgba(91,127,255,0.18); }
+
+  .hamburger {
+    display: none; background: transparent; border: none; cursor: pointer;
+    padding: 8px; color: rgba(255,255,255,0.8);
+  }
+  .hamburger svg { width: 24px; height: 24px; }
+
+  .mobile-menu {
+    display: none;
+    background: rgba(6,6,17,0.97); backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border); padding: 12px 0;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-nav-link {
+    display: block; padding: 12px 20px;
+    font-size: 15px; font-weight: 500;
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+  }
+  .mobile-nav-link:hover, .mobile-nav-link.active { color: var(--accent-light); background: rgba(255,255,255,0.04); }
+
+  @media (max-width: 900px) {
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; align-items: center; }
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── PAGE MAIN ── */
+  .page-main { padding-top: 72px; background: var(--bg); min-height: 100vh; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: 90vh; display: flex; align-items: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    background-image: url('hero-background.jpeg');
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, rgba(6,6,17,0.88) 0%, rgba(10,12,35,0.75) 60%, rgba(6,6,17,0.65) 100%);
+  }
+  .hero-glow {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 60% 60% at 20% 50%, rgba(91,127,255,0.1) 0%, transparent 70%);
+  }
+  .hero-content { position: relative; max-width: 1280px; margin: 0 auto; padding: 8rem 24px 4rem; }
+  .hero-inner { max-width: 640px; }
+
+  /* ── PAGE BANNER ── */
+  .page-banner {
+    padding: 80px 0 60px;
+    background: linear-gradient(180deg, #0a0b20 0%, #06060f 100%);
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .page-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(91,127,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-banner-inner { max-width: 896px; margin: 0 auto; padding: 0 24px; }
+  .page-banner-label {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent-light); margin-bottom: 14px;
+  }
+  .page-banner-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em;
+    color: #fff; line-height: 1.1; margin: 0;
+  }
+
+  /* ── CONTAINERS ── */
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  .container-narrow { max-width: 896px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── TYPOGRAPHY ── */
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent-light); display: block; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; text-transform: uppercase;
+    color: #fff; line-height: 1.15; margin: 0 0 16px;
+  }
+  .section-subtitle { color: var(--text-muted); font-size: 16px; line-height: 1.7; }
+  .accent-rule { display: block; width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 20px; }
+
+  /* ── CARDS ── */
+  .dark-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+  }
+  .dark-card-header {
+    background: var(--bg-card-2);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px; display: flex; align-items: center; gap: 12px;
+  }
+  .dark-card-header.clickable {
+    text-decoration: none; cursor: pointer; transition: opacity 0.2s;
+  }
+  .dark-card-header.clickable:hover { opacity: 0.85; }
+  .dark-card-body { padding: 24px; }
+
+  /* ── BUTTONS ── */
+  .btn-accent {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 28px; border-radius: 10px;
+    background: var(--accent); color: #fff;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
+    text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .btn-accent:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 28px; border-radius: 10px;
+    background: transparent; color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
+    text-decoration: none; transition: background 0.2s, transform 0.15s; cursor: pointer;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); }
+
+  /* ── DARK PROSE ── */
+  .dark-prose { color: var(--text-muted); }
+  .dark-prose h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.7rem; font-weight: 700; text-transform: uppercase;
+    color: #fff; margin: 2rem 0 1rem; letter-spacing: 0.01em;
+  }
+  .dark-prose h3 { font-size: 1.15rem; font-weight: 600; color: #e2e8f0; margin: 1.5rem 0 0.75rem; }
+  .dark-prose p { line-height: 1.75; margin-bottom: 1rem; }
+  .dark-prose ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .dark-prose li { margin-bottom: 0.5rem; line-height: 1.7; }
+  .dark-prose a { color: var(--accent-light); text-decoration: underline; }
+  .dark-prose a:hover { color: #fff; }
+  .dark-prose strong { color: #e2e8f0; }
+
+  /* ── TABLE ── */
+  .dark-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .dark-table th {
+    background: rgba(91,127,255,0.12); color: var(--accent-light);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 12px 16px; border-bottom: 1px solid var(--border-accent); text-align: left;
+  }
+  .dark-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+  .dark-table tr:last-child td { border-bottom: none; }
+  .dark-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 640px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 641px) and (max-width: 900px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── FOOTER ── */
+  .site-footer { position: relative; overflow: hidden; }
+  .footer-bg {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    background-image: url('footer-background.jpg');
+  }
+  .footer-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(6,6,17,0.93) 0%, rgba(10,10,28,0.90) 100%);
+  }
+  .footer-content { position: relative; max-width: 1280px; margin: 0 auto; padding: 56px 24px; text-align: center; }
+  .footer-logo-text {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: #fff;
+    display: block; margin-bottom: 16px;
+  }
+  .footer-desc { font-size: 13px; color: rgba(255,255,255,0.45); max-width: 480px; margin: 0 auto 32px; line-height: 1.65; }
+  .footer-divider { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; }
+  .footer-legal { font-size: 12px; color: rgba(255,255,255,0.28); }
+
+  /* ── UTILITY ── */
+  .space-y-6 > * + * { margin-top: 24px; }
+  .space-y-8 > * + * { margin-top: 32px; }
+  .mt-6 { margin-top: 24px; }
+  .mt-8 { margin-top: 32px; }
+  .mt-10 { margin-top: 40px; }
+  .mt-20 { margin-top: 80px; }
+  .mb-4 { margin-bottom: 16px; }
+  .mb-6 { margin-bottom: 24px; }
+  .mb-8 { margin-bottom: 32px; }
+  .mb-10 { margin-bottom: 40px; }
+  .mb-12 { margin-bottom: 48px; }
+  .py-14 { padding-top: 56px; padding-bottom: 56px; }
+  .py-16 { padding-top: 64px; padding-bottom: 64px; }
+  .py-20 { padding-top: 80px; padding-bottom: 80px; }
+  .flex { display: flex; }
+  .flex-wrap { flex-wrap: wrap; }
+  .items-center { align-items: center; }
+  .gap-4 { gap: 16px; }
+  .gap-5 { gap: 20px; }
+  .text-center { text-align: center; }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    background: rgba(91,127,255,0.07);
+    border: 1px solid rgba(91,127,255,0.2);
+    border-radius: 12px; padding: 20px 24px;
+  }
+  .info-box-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-light);
+    display: block; margin-bottom: 8px;
+  }
+
+  /* ── STAT CARD ── */
+  .stat-card {
+    background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px;
+  }
+  .stat-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-light); margin-bottom: 6px;
+  }
+  .stat-value {
+    font-size: 1.8rem; font-weight: 800; color: #fff;
+    font-family: 'Barlow Condensed', sans-serif; margin-bottom: 4px;
+  }
+  .stat-note { font-size: 12px; color: var(--text-muted); }
+
+  /* ── FAQ ── */
+  .faq-section-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem;
+    font-weight: 700; text-transform: uppercase; color: #fff;
+    letter-spacing: 0.05em; margin: 0 0 8px;
+  }
+  .faq-rule { width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 20px; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question {
+    width: 100%; padding: 20px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: transparent; border: none; cursor: pointer; text-align: left;
+    transition: background 0.15s; color: #fff;
+  }
+  .faq-question:hover { background: rgba(255,255,255,0.03); }
+  .faq-question-text { font-weight: 600; font-size: 15px; padding-right: 2rem; color: #e2e8f0; }
+  .faq-question.open .faq-question-text { color: var(--accent-light); }
+  .faq-chevron {
+    width: 18px; height: 18px; flex-shrink: 0; color: var(--text-muted);
+    transition: transform 0.2s;
+  }
+  .faq-question.open .faq-chevron { transform: rotate(180deg); }
+  .faq-answer { padding: 0 24px 20px; color: var(--text-muted); font-size: 15px; line-height: 1.75; display: none; }
+  .faq-answer.open { display: block; }
+  .faq-answer ul { padding-left: 1.4rem; margin: 0.5rem 0; }
+  .faq-answer li { margin-bottom: 0.35rem; line-height: 1.7; }
+  .faq-answer ul ul { list-style-type: circle; margin: 0.2rem 0; }
+  .faq-answer strong { color: #e2e8f0; }
+  .faq-answer a { color: var(--accent-light); }
+
+  /* ── CONCERN CARD ── */
+  .concern-card { border-radius: 14px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); }
+  .concern-card-inner { border-left-width: 3px; border-left-style: solid; }
+  .concern-header { padding: 16px 24px; display: flex; align-items: center; gap: 12px; background: var(--bg-card-2); border-bottom: 1px solid var(--border); }
+  .concern-body { padding: 24px; }
+  .concern-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .concern-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.15rem; text-transform: uppercase; color: #fff; margin: 0; }
+  .safeguard-box {
+    background: rgba(91,127,255,0.07); border: 1px solid rgba(91,127,255,0.18);
+    border-radius: 8px; padding: 14px 18px; margin-top: 12px;
+  }
+  .safeguard-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-light); display: block; margin-bottom: 4px;
+  }
+
+  /* ── HERO BUTTONS ── */
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 16px; }
+
+  /* commitment section */
+  .commitment-section {
+    background: linear-gradient(135deg, #0a0b20 0%, #0d0f28 100%);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .commitment-inner { max-width: 768px; margin: 0 auto; text-align: center; }
+
+  /* link-styled nav trigger */
+  [data-nav] { cursor: pointer; }
+  [data-nav]:hover { opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a class="logo-link" data-nav="Home" href="#">
+      <img src="logo.png" alt="El Dorado Data Center Impact" style="height:24px;width:auto;" />
+    </a>
+    <nav class="desktop-nav" id="desktop-nav">
+      <a class="nav-link active" data-nav="Home" href="#">Home</a>
+      <a class="nav-link" data-nav="WhyThisMatters" href="#">Why This Matters</a>
+      <a class="nav-link" data-nav="TaxAbatements" href="#">Tax Abatements</a>
+      <a class="nav-link" data-nav="Infrastructure" href="#">Infrastructure</a>
+      <a class="nav-link" data-nav="CommunityConcerns" href="#">Community Concerns</a>
+      <a class="nav-link" data-nav="FAQ" href="#">FAQ</a>
+      <a class="nav-link" data-nav="About" href="#">About</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <svg id="ham-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a class="mobile-nav-link" data-nav="Home" href="#">Home</a>
+    <a class="mobile-nav-link" data-nav="WhyThisMatters" href="#">Why This Matters</a>
+    <a class="mobile-nav-link" data-nav="TaxAbatements" href="#">Tax Abatements</a>
+    <a class="mobile-nav-link" data-nav="Infrastructure" href="#">Infrastructure</a>
+    <a class="mobile-nav-link" data-nav="CommunityConcerns" href="#">Community Concerns</a>
+    <a class="mobile-nav-link" data-nav="FAQ" href="#">FAQ</a>
+    <a class="mobile-nav-link" data-nav="About" href="#">About</a>
+  </div>
+</header>
+
+<main class="page-main">
+
+<!-- ═══════════════ HOME ═══════════════ -->
+<div class="page active" id="page-Home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-inner">
+        <span class="section-label">Community Information Resource</span>
+        <span class="accent-rule"></span>
+        <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;text-transform:uppercase;line-height:1.05;color:#fff;letter-spacing:-0.01em;margin-bottom:0.75rem">
+          Data Centers &amp;<br>Emerging Industries<br>in El Dorado
+        </h1>
+        <p style="color:rgba(232,234,246,0.85);font-size:1.15rem;font-weight:600;line-height:1.5;max-width:560px;margin-bottom:1rem">
+          What It Means for Our Community
+        </p>
+        <p style="color:rgba(232,234,246,0.75);font-size:1rem;line-height:1.75;max-width:560px;margin-bottom:0.75rem">
+          This site is intended to provide clear, factual information as El Dorado prepares for <strong style="color:#fff">potential future opportunities in emerging industries</strong>, including data centers.
+        </p>
+        <p style="color:rgba(232,234,246,0.75);font-size:1rem;line-height:1.75;max-width:560px;margin-bottom:1.5rem">
+          <strong style="color:#fff">No specific project is being considered or approved</strong> through this effort. Instead, the focus is on making sure the community has the <strong style="color:#fff">right information, standards, and expectations</strong> in place so that any future opportunities can be evaluated thoughtfully and responsibly.
+        </p>
+        <div class="info-box" style="margin-bottom:2rem">
+          <p style="color:rgba(232,234,246,0.7);font-size:14px;line-height:1.7;margin:0">
+            <strong style="color:#fff">Why this site exists:</strong> Created by <a href="https://www.eldorado-inc.com" target="_blank" rel="noopener noreferrer">El Dorado Inc.</a> to help residents understand a complex topic using publicly available information.
+          </p>
+        </div>
+        <div class="hero-btns">
+          <a class="btn-accent" data-nav="WhyThisMatters" href="#">Why are we talking about this? →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY POINTS -->
+  <section class="container mt-20 mb-12">
+    <div class="mb-12">
+      <span class="section-label">Topics</span>
+      <h2 class="section-title">The Key Points</h2>
+      <p class="section-subtitle">Here's what you need to know. Click any topic to explore the details.</p>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Card 1 -->
+      <div class="dark-card">
+        <a class="dark-card-header clickable" data-nav="TaxAbatements" href="#">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-light);flex-shrink:0"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#fff;margin:0">Tax Abatements &amp; Fiscal Impact</h3>
+        </a>
+        <div class="dark-card-body">
+          <h4 style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-light);margin-bottom:16px">The Short Version</h4>
+          <ul class="dark-prose" style="padding-left:1.25rem;margin-bottom:1.25rem">
+            <li>El Dorado's <strong>property tax abatement policy</strong> allows abating of property taxes for <strong>up to 10 years</strong>. Abatement terms are <strong>negotiated based on project scope</strong> and go through a <strong>community benefits agreement process</strong>.</li>
+            <li>After abatements end, the facility pays <strong>full property taxes</strong> — which could <strong>grow the tax base</strong> and, if budgets remain stable, <strong>reduce mill levy rates</strong> for everyone.</li>
+            <li>Separately, <strong>franchise fees from electricity sales begin immediately</strong> — with no abatement period. A 100MW data center could more than <strong>triple</strong> El Dorado's current <strong>~$1M/year</strong> in Evergy franchise fees from day one.</li>
+            <li><strong>The tradeoff is real:</strong> Near-term reduction in property tax revenue in exchange for a <strong>significant long-term taxpayer</strong> — plus <strong>immediate franchise fee gains</strong>.</li>
+          </ul>
+          <a class="dark-prose" data-nav="TaxAbatements" href="#" style="color:var(--accent-light);font-weight:600;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
+            Read the full tax impact explanation →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="dark-card">
+        <a class="dark-card-header clickable" data-nav="Infrastructure" href="#">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-light);flex-shrink:0"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#fff;margin:0">Power, Water &amp; Infrastructure</h3>
+        </a>
+        <div class="dark-card-body">
+          <h4 style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-light);margin-bottom:16px">The Short Version</h4>
+          <div class="dark-prose" style="margin-bottom:1.25rem">
+            <p><strong style="color:#e2e8f0">Electric Bills:</strong> No. By Kansas law, data centers pay the <strong>full cost</strong> of their power usage with <strong>no discounted rates</strong>. Kansas put <strong>new protections in place</strong> in November 2025 requiring large users to pay for their own transmission lines and infrastructure.</p>
+            <p><strong style="color:#e2e8f0">Water:</strong> Modern large-scale facilities typically use <strong>closed-loop cooling systems</strong> that recirculate water. El Dorado has <a href="https://www.developeldorado.com/industrial-water" target="_blank" rel="noopener noreferrer">10 million gallons per day of industrial water capacity</a> available.</p>
+            <p><strong style="color:#e2e8f0">Jobs:</strong> Data centers create <strong>skilled, well-paid permanent positions</strong> — typically <strong>30–150 jobs</strong> per facility.</p>
+          </div>
+          <a class="dark-prose" data-nav="Infrastructure" href="#" style="color:var(--accent-light);font-weight:600;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
+            Read the full infrastructure analysis →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="dark-card">
+        <a class="dark-card-header clickable" data-nav="CommunityConcerns" href="#">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent-light);flex-shrink:0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#fff;margin:0">Community Concerns &amp; Safety</h3>
+        </a>
+        <div class="dark-card-body">
+          <h4 style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-light);margin-bottom:16px">The Short Version</h4>
+          <div class="dark-prose" style="margin-bottom:1.25rem">
+            <p><strong style="color:#e2e8f0">Noise:</strong> Modern acoustic engineering has made data centers <strong>far quieter than most people expect</strong>. <strong>Independent noise studies and enforceable limits</strong> should be part of any development agreement.</p>
+            <p><strong style="color:#e2e8f0">Emissions:</strong> Backup generators run <strong>only during emergencies and scheduled monthly tests</strong>. Modern <strong>tier-4 engines</strong> meet strict EPA standards.</p>
+            <p><strong style="color:#e2e8f0">Fire Risk:</strong> Modern facilities are built with <strong>dedicated suppression systems</strong> under rigorous <a href="https://www.ul.com/services/ul-9540a-test-method" target="_blank" rel="noopener noreferrer">UL 9540A</a> and NFPA 855 standards.</p>
+            <p><strong style="color:#e2e8f0">Property Values:</strong> A <a href="https://schar.gmu.edu/news/2025-11/study-home-prices-are-higher-when-house-near-data-center" target="_blank" rel="noopener noreferrer">2025 George Mason University study</a> found <strong>homes near data centers sell at higher prices</strong>.</p>
+          </div>
+          <a class="dark-prose" data-nav="CommunityConcerns" href="#" style="color:var(--accent-light);font-weight:600;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
+            Read the detailed safety analysis →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO CALLOUT -->
+  <section class="container" style="padding-bottom:16px">
+    <div class="info-box" style="display:flex;flex-direction:row;align-items:center;gap:28px;flex-wrap:wrap;margin-top:24px;margin-bottom:8px">
+      <div style="flex:1;min-width:220px">
+        <span class="info-box-title">See It For Yourself</span>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;text-transform:uppercase;color:#fff;margin-bottom:8px">What Does a Data Center Actually Look Like?</h3>
+        <p style="color:var(--text-muted);font-size:14px;line-height:1.7;margin:0 0 16px">Before forming an opinion, it helps to see one. Linus Tech Tips toured an Equinix facility — one of the world's largest operators.</p>
+        <a href="https://youtu.be/wumluVRmxyA?si=kCBE3N_O9OecgYn-" target="_blank" rel="noopener noreferrer" class="btn-accent" style="font-size:13px;padding:10px 22px">Watch the Tour on YouTube ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMITMENT STRIP -->
+  <section class="commitment-section py-16">
+    <div class="container commitment-inner">
+      <span class="section-label" style="display:block;text-align:center">Our Commitment</span>
+      <h2 class="section-title" style="text-align:center">Balanced. Transparent. Updated.</h2>
+      <p class="section-subtitle" style="text-align:center;margin-bottom:2.5rem">Our goal is to present facts clearly and help you understand the tradeoffs.</p>
+      <div class="grid-3" style="max-width:900px;margin:0 auto">
+        <div style="background:rgba(91,127,255,0.07);border:1px solid rgba(91,127,255,0.15);border-radius:12px;padding:24px 20px;text-align:left">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;color:#fff;margin-bottom:8px">Balanced</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">We present both potential benefits and legitimate concerns.</p>
+        </div>
+        <div style="background:rgba(91,127,255,0.07);border:1px solid rgba(91,127,255,0.15);border-radius:12px;padding:24px 20px;text-align:left">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;color:#fff;margin-bottom:8px">Transparent</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">We show our assumptions and acknowledge what we don't know.</p>
+        </div>
+        <div style="background:rgba(91,127,255,0.07);border:1px solid rgba(91,127,255,0.15);border-radius:12px;padding:24px 20px;text-align:left">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;color:#fff;margin-bottom:8px">Updated</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">We'll add new information as it becomes available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container py-20">
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:clamp(2rem,5vw,3.5rem);text-align:center">
+      <h2 class="section-title" style="text-align:center">Have Questions?</h2>
+      <p class="section-subtitle" style="text-align:center;margin-bottom:2rem;max-width:500px;margin:0 auto 2rem">Browse our frequently asked questions or learn more about this community information effort.</p>
+      <div class="flex gap-4" style="justify-content:center;flex-wrap:wrap">
+        <a class="btn-accent" data-nav="FAQ" href="#">View FAQ</a>
+        <a class="btn-outline" data-nav="About" href="#">About This Effort</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ═══════════════ WHY THIS MATTERS ═══════════════ -->
+<div class="page" id="page-WhyThisMatters">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <span class="page-banner-label">Context &amp; Background</span>
+      <h1 class="page-banner-title">Why Are We Talking About This?</h1>
+    </div>
+  </div>
+  <div class="container-narrow py-14">
+    <div class="dark-prose">
+      <p class="section-subtitle mb-10">Large-scale data center investments are being discussed across Kansas. Understanding why — and what it could mean for El Dorado — starts with understanding the broader context.</p>
+
+      <h2>Data Centers Are Coming to Kansas</h2>
+      <p>Kansas has become a target for data center investment due to its <strong>central location</strong>, <strong>available land</strong>, relatively <strong>low natural disaster risk</strong>, and access to <strong>power infrastructure</strong>. Several counties across the state are evaluating proposals or have already approved projects.</p>
+      <ul>
+        <li>Major tech companies are <strong>expanding data center capacity nationwide</strong></li>
+        <li>Kansas offers <strong>geographic and infrastructure advantages</strong></li>
+        <li>Multiple Kansas communities are being approached with proposals</li>
+      </ul>
+
+      <h2>Some Communities Have Paused or Rejected Projects</h2>
+      <p>Not every community has said yes. Some Kansas counties have <strong>paused data center discussions or rejected proposals</strong> over concerns about <strong>power usage</strong>, <strong>water consumption</strong>, <strong>tax abatements</strong>, or community impact. These decisions highlight the importance of careful evaluation.</p>
+      <ul>
+        <li>Concerns about <strong>long-term utility impacts</strong></li>
+        <li>Questions about the <strong>balance of tax abatements vs. community benefit</strong></li>
+        <li>Desire for more information before making decisions</li>
+      </ul>
+
+      <h2>El Dorado Is Studying the Issue Proactively</h2>
+      <p>Rather than waiting for a formal proposal and reacting under pressure, El Dorado and Butler County have the opportunity to <strong>study the issue now</strong> — understanding both the potential benefits and the real concerns <strong>before any commitments are made</strong>.</p>
+      <ul>
+        <li>Time to gather facts and understand the full picture — <strong>including things that could go wrong</strong></li>
+        <li>Opportunity to <strong>establish community priorities and red lines in advance</strong></li>
+        <li>Chance to learn from communities that said yes, and from those that said no</li>
+      </ul>
+
+      <h2>This Is Not a Decision That Can Be Undone</h2>
+      <p>A major industrial facility, once built, will <strong>shape El Dorado for decades</strong>. The goal of this resource is to make sure that when our community faces this decision, every resident — whether supportive, skeptical, or undecided — has access to <strong>honest, complete information</strong> to participate meaningfully in the conversation.</p>
+    </div>
+    <div class="mt-10">
+      <a class="btn-accent" data-nav="TaxAbatements" href="#">Start with Tax Abatements →</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ TAX ABATEMENTS ═══════════════ -->
+<div class="page" id="page-TaxAbatements">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <span class="page-banner-label">Fiscal Impact</span>
+      <h1 class="page-banner-title">Tax Abatements &amp; Fiscal Impact</h1>
+    </div>
+  </div>
+  <div class="container-narrow py-14">
+    <p class="section-subtitle mb-10">Understanding El Dorado's tax abatement policy, what it means for the community, and how a major data center investment could affect the local tax base over time.</p>
+
+    <div class="dark-prose">
+      <h2>El Dorado's Property Tax Abatement Policy</h2>
+      <p>The City of El Dorado's policy provides property tax abatements scaled to the level of <strong>capital investment</strong> and <strong>job creation</strong>.</p>
+      <p>For a large data center investment — <strong>potentially exceeding $1 billion</strong> — the actual abatement percentage is <strong>negotiated based on the project's scope</strong>. Projects of this scale go through a <strong>community benefits agreement process</strong>.</p>
+      <p>For purposes of illustration, we use a <strong>hypothetical 85% abatement</strong>. The abatement period typically runs <strong>up to 10 years</strong>, after which the facility pays <strong>full property taxes</strong>.</p>
+      <p><strong>Note:</strong> Property tax on a data center is assessed on <strong>real property (land and buildings)</strong>, not on servers and equipment. The taxable assessed value may be <strong>significantly lower</strong> than the total capital investment.</p>
+
+      <h2>What an Abatement Is — and Isn't</h2>
+      <p>A tax abatement is <strong>not a reduction in existing funding</strong>. Schools, services, and infrastructure continue to be funded by existing taxpayers just as before. The abatement simply means the new facility <strong>phases into its full tax contribution over time</strong> rather than starting at 100% on day one.</p>
+
+      <h2>Hypothetical Tax Revenue Illustration</h2>
+      <p>For context, the City of El Dorado currently generates approximately <strong>$7 million per year</strong> in total property tax revenue.</p>
+      <p style="font-style:italic;color:var(--text-muted)">The following uses hypothetical numbers for illustration only. Actual assessed values, mill levies, and abatement terms would be established through formal agreements.</p>
+    </div>
+
+    <div class="info-box" style="margin:1.5rem 0">
+      <p style="font-weight:700;color:#fff;margin-bottom:4px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase">Hypothetical: 1 Million SQ FT Facility Additional Tax Revenue</p>
+      <p style="color:var(--text-muted);font-size:12px;margin-bottom:20px">$200M Estimated Appraised Value, $50M assessed building value, 164 mill levy, 85% abatement</p>
+      <div class="grid-2" style="margin-bottom:16px">
+        <div class="stat-card">
+          <div class="stat-label">Total Property Tax (All Jurisdictions)</div>
+          <div class="stat-value">$8.2M+/yr</div>
+          <div class="stat-note">Combined annual property tax across city, county, schools, and other entities</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">City of El Dorado Annual Share</div>
+          <div class="stat-value">$2.8M+/yr</div>
+          <div class="stat-note">Portion of total tax revenue allocated to the City</div>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-bottom:20px">
+        <div class="stat-card">
+          <div class="stat-label">During Abatement (First 10 Years)</div>
+          <div style="margin-bottom:4px"><span style="font-size:1.4rem;font-weight:800;color:#fff;font-family:'Barlow Condensed',sans-serif">~$1.23M/yr</span> <span style="font-size:12px;color:var(--text-muted);margin-left:8px">total</span></div>
+          <div style="margin-bottom:10px"><span style="font-size:1.4rem;font-weight:800;color:#fff;font-family:'Barlow Condensed',sans-serif">~$430K/yr</span> <span style="font-size:12px;color:var(--text-muted);margin-left:8px">to the City</span></div>
+          <div class="stat-note">15% of full amount during incentive period</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">After Abatement (Year 11+)</div>
+          <div style="margin-bottom:4px"><span style="font-size:1.4rem;font-weight:800;color:#fff;font-family:'Barlow Condensed',sans-serif">$8.2M+/yr</span> <span style="font-size:12px;color:var(--text-muted);margin-left:8px">total</span></div>
+          <div style="margin-bottom:10px"><span style="font-size:1.4rem;font-weight:800;color:#fff;font-family:'Barlow Condensed',sans-serif">$2.8M+/yr</span> <span style="font-size:12px;color:var(--text-muted);margin-left:8px">to the City</span></div>
+          <div class="stat-note">Full annual tax revenue collected moving forward</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dark-prose">
+      <h2>How Does That Compare to Homes?</h2>
+      <p>Using El Dorado's median home value of approximately <strong>$150,000</strong> and the same 164 mill levy:</p>
+    </div>
+
+    <div class="info-box" style="margin:1.5rem 0">
+      <div class="grid-2">
+        <div>
+          <div class="stat-label">Median Home (Est. $150K)</div>
+          <div style="font-size:1.4rem;font-weight:800;color:#fff;font-family:'Barlow Condensed',sans-serif;margin-bottom:4px">~$2,800/yr</div>
+          <div style="font-size:13px;color:var(--text-muted)">$17,250 assessed × 0.164 mills</div>
+        </div>
+        <div>
+          <div class="stat-label">Equivalent Homes Needed</div>
+          <div style="font-size:1.4rem;font-weight:800;color:#fff;font-family:'Barlow Condensed',sans-serif;margin-bottom:4px">~1,000+ homes</div>
+          <div style="font-size:13px;color:var(--text-muted)">To match one data center's annual property tax revenue to the City</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:16px;margin-bottom:0;font-style:italic">El Dorado has approximately 11,000 residents and around 4,300 housing units. A single data center could contribute tax revenue equivalent to a fourth of the city's entire residential tax base — without the corresponding demand for schools, roads, or city services.</p>
+    </div>
+
+    <div class="dark-prose">
+      <h2>What This Could Mean for Homeowners</h2>
+      <p><strong>During abatement (Years 1–10):</strong> The facility pays a reduced share — approximately 15%. Existing funding for schools, roads, and services is unaffected.</p>
+      <p><strong>After abatement (Year 11+):</strong> The data center becomes a major contributor. If that new revenue is larger than budget increases, it could help <strong>stabilize or reduce mill levy rates</strong> for all property owners.</p>
+      <p><strong>The honest answer:</strong> Tax abatements are a calculated investment in long-term economic development. The community accepts a reduced contribution in the early years in exchange for a significant long-term taxpayer.</p>
+
+      <h2>Franchise Fees: Revenue from Day One</h2>
+      <p>The City of El Dorado currently collects approximately <strong>$1 million per year</strong> in franchise fees from Evergy. These fees are a percentage of utility revenue — and a data center would dramatically expand that revenue base.</p>
+    </div>
+
+    <div class="info-box" style="margin:1.5rem 0">
+      <p style="font-weight:700;color:#fff;margin-bottom:16px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase">Franchise Fee Impact: 100MW Data Center</p>
+      <div class="grid-3">
+        <div class="stat-card">
+          <div class="stat-label">Current Annual Franchise Fees</div>
+          <div class="stat-value">~$1M/yr</div>
+          <div class="stat-note">Total fees collected from all electrical service today</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Estimated Additional Fees (100MW)</div>
+          <div class="stat-value">~$2.5M+/yr</div>
+          <div class="stat-note">From data center electrical usage alone</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Projected Franchise Fees</div>
+          <div class="stat-value">~$3.5M+/yr</div>
+          <div class="stat-note">A 250%+ increase from current levels</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:16px;margin-bottom:0;font-style:italic">100MW is considered a relatively small data center by hyperscaler standards. Larger facilities would generate proportionally higher franchise fees.</p>
+    </div>
+
+    <div class="dark-prose">
+      <p>Franchise fees are <strong>not subject to abatement</strong>. They flow to the city <strong>from the first day of operation</strong> and <strong>scale directly with the facility's power consumption</strong>.</p>
+    </div>
+
+    <div class="mt-10">
+      <a class="btn-accent" data-nav="Infrastructure" href="#">Next: Power, Water &amp; Infrastructure →</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ INFRASTRUCTURE ═══════════════ -->
+<div class="page" id="page-Infrastructure">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <span class="page-banner-label">Infrastructure</span>
+      <h1 class="page-banner-title">Power, Water &amp; Infrastructure</h1>
+    </div>
+  </div>
+  <div class="container-narrow py-14">
+    <p class="section-subtitle mb-10">Data centers have significant infrastructure requirements. Understanding how these are managed — and what safeguards exist — is essential for informed community discussion.</p>
+
+    <div class="dark-prose">
+      <h2>Electric Power</h2>
+      <h3>Concerns About Electric Bill Increases</h3>
+      <p>In some states, data center development has contributed to <strong>higher electric bills for residents</strong> when infrastructure costs were spread across all customers. Kansas has taken steps to address this:</p>
+      <ul>
+        <li><strong>Kansas law requires cost responsibility:</strong> Data centers pay the <strong>full cost</strong> of their power usage with <strong>no discounted electricity rates</strong>.</li>
+        <li><strong>Kansas protections (Nov 2025):</strong> The <a href="https://www.kcc.ks.gov/news-11-6-25" target="_blank" rel="noopener noreferrer">Kansas Corporation Commission approved new rules</a> requiring large power users to <strong>pay for their own transmission lines</strong> and operate under separate rate structures from residential customers.</li>
+        <li><strong>Federal proposal (Jan 2026):</strong> The <a href="https://www.energy.gov/articles/trump-administration-calls-emergency-power-auction-build-big-power-plants-again" target="_blank" rel="noopener noreferrer">Trump administration proposed policies</a> requiring data centers to <strong>fund new power generation</strong>, specifically to protect residential ratepayers.</li>
+      </ul>
+
+      <h3>Grid Impact</h3>
+      <p>Before any major load is added to the grid, utilities conduct <strong>interconnection studies</strong> to assess capacity and determine required upgrades. For projects of this scale, those upgrades are <strong>required to be funded by the project developer</strong>.</p>
+
+      <h2>Water Use</h2>
+      <h3>Closed-Loop Cooling Systems</h3>
+      <p>Modern large-scale data centers most commonly use <strong>closed-loop cooling systems</strong>. These systems recirculate the same water through the cooling loop continuously, rather than drawing fresh water on every cycle.</p>
+
+      <h3>What Happens to the Water</h3>
+      <p>Water discharged from the cooling system is <strong>properly treated</strong> — similar to how a municipal wastewater treatment plant operates — and is then either <strong>safely released</strong> or made available for <strong>reuse in other industrial applications</strong>.</p>
+
+      <h3>El Dorado's Unique Water Position</h3>
+      <p>El Dorado has a water system unusually well-suited for evaluating large industrial proposals:</p>
+      <ul>
+        <li><strong>Firm water supply:</strong> <a href="https://www.developeldorado.com/industrial-water" target="_blank" rel="noopener noreferrer">Approximately 10 million gallons per day</a> available for industrial use</li>
+        <li><strong>Reservoir-based:</strong> El Dorado Reservoir provides long-term planning certainty</li>
+        <li><strong>Direct control:</strong> The city is the sole owner of its water system and contracts directly with the U.S. Army Corps of Engineers</li>
+        <li><strong>Revenue opportunity:</strong> Water sales to industrial users create a revenue stream for the city that can support local services and infrastructure</li>
+        <li><strong>Capacity study:</strong> The City completed a feasibility study with Black &amp; Veatch confirming the ability to sell an additional 8.5 billion gallons per year beyond current sales</li>
+      </ul>
+
+      <h2>Infrastructure Footprint</h2>
+    </div>
+
+    <div class="dark-card" style="overflow:hidden;margin:2rem 0">
+      <table class="dark-table">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Data Center</th>
+            <th>Manufacturing Plant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:#e2e8f0;font-weight:600">Road Traffic</td><td>Minimal (small staff, few deliveries)</td><td>Significant (large workforce, supply chain)</td></tr>
+          <tr><td style="color:#e2e8f0;font-weight:600">Housing Demand</td><td>Low (dozens to hundreds of jobs)</td><td>High (thousands of workers)</td></tr>
+          <tr><td style="color:#e2e8f0;font-weight:600">School Impact</td><td>Minimal</td><td>Significant growth pressure</td></tr>
+          <tr><td style="color:#e2e8f0;font-weight:600">City Services</td><td>Limited demand</td><td>Substantial increase</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dark-prose">
+      <h2>A Proven Track Record</h2>
+      <p><strong>Ashburn, Virginia</strong> is the data center capital of the world, home to 100–200 facilities. It is <strong>one of the most desirable communities in the country</strong> — not despite the data centers, but in part because of the infrastructure investment they brought.</p>
+      <p>The industry's track record across <strong>thousands of operational facilities</strong> demonstrates that — with proper planning — these concerns are manageable and the benefits are real.</p>
+
+      <h2>Key Safeguards</h2>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2.5rem">
+      <div class="dark-card" style="padding:20px">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent-light);margin-bottom:8px">Utility Coordination</h3>
+        <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">Grid studies and capacity planning before approval</p>
+      </div>
+      <div class="dark-card" style="padding:20px">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent-light);margin-bottom:8px">Cost Allocation</h3>
+        <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">Large users typically pay for their infrastructure needs</p>
+      </div>
+      <div class="dark-card" style="padding:20px">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent-light);margin-bottom:8px">Water Planning</h3>
+        <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">Usage must fit within long-term community water plans</p>
+      </div>
+      <div class="dark-card" style="padding:20px">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent-light);margin-bottom:8px">Regulatory Oversight</h3>
+        <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">State and federal agencies review major utility changes</p>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin:2rem 0">
+      <p style="font-weight:700;color:#fff;margin-bottom:6px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase">Want to See Inside a Data Center?</p>
+      <p style="color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:10px">Linus Tech Tips produced an unbiased tour of an Equinix data center. It's a good way to understand what these facilities actually look like.</p>
+      <a href="https://youtu.be/wumluVRmxyA?si=kCBE3N_O9OecgYn-" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:13px;padding:10px 20px">Watch the Tour on YouTube ↗</a>
+    </div>
+
+    <a class="btn-accent" data-nav="CommunityConcerns" href="#">Next: Community Concerns &amp; Safety →</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════ COMMUNITY CONCERNS ═══════════════ -->
+<div class="page" id="page-CommunityConcerns">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <span class="page-banner-label">Community Concerns</span>
+      <h1 class="page-banner-title">Community Concerns &amp; Safety</h1>
+    </div>
+  </div>
+  <div class="container-narrow py-14">
+    <p class="section-subtitle mb-10">Residents have raised serious, legitimate concerns about noise, safety, emissions, and quality of life — and those concerns deserve honest answers.</p>
+
+    <div class="space-y-6">
+      <!-- Water -->
+      <div class="concern-card">
+        <div class="concern-card-inner" style="border-left-color:#22c55e">
+          <div class="concern-header">
+            <span class="concern-label" style="color:#22c55e">Water</span>
+            <h2 class="concern-title">Water Use &amp; Treatment</h2>
+          </div>
+          <div class="concern-body dark-prose">
+            <p><strong style="color:#e2e8f0">The Concern:</strong> Water usage is a topic worth understanding, and El Dorado is well positioned to address it.</p>
+            <p><strong style="color:#e2e8f0">What We Found:</strong></p>
+            <ul>
+              <li>El Dorado has <a href="https://www.developeldorado.com/industrial-water" target="_blank" rel="noopener noreferrer">approximately <strong>10 million gallons per day</strong> of industrial water capacity</a> backed by El Dorado Reservoir</li>
+              <li>Modern cooling systems increasingly use <strong>closed-loop designs</strong> that recirculate water, <strong>reducing fresh water consumption</strong></li>
+              <li>Water discharged from the cooling loop is <strong>properly treated before release</strong></li>
+              <li>Treated discharge can be safely released or made available for reuse</li>
+              <li>This infrastructure was <strong>designed with large industrial users in mind</strong></li>
+            </ul>
+            <div class="safeguard-box">
+              <span class="safeguard-label">Community Safeguard</span>
+              <p style="margin:0">Specific water usage caps, treatment standards, and discharge requirements should be written into the development agreement as binding terms before any project is approved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Noise -->
+      <div class="concern-card">
+        <div class="concern-card-inner" style="border-left-color:#5b7fff">
+          <div class="concern-header">
+            <span class="concern-label" style="color:#5b7fff">Noise</span>
+            <h2 class="concern-title">Noise from Cooling Systems &amp; Generators</h2>
+          </div>
+          <div class="concern-body dark-prose">
+            <p><strong style="color:#e2e8f0">The Concern:</strong> Large HVAC systems and backup generators can produce noise, and that's a fair thing to ask about.</p>
+            <p><strong style="color:#e2e8f0">What We Found:</strong></p>
+            <ul>
+              <li>Cooling equipment runs 24/7; <strong>modern acoustic engineering</strong> has made significant advances in reducing this</li>
+              <li>Generator testing (typically <strong>monthly</strong>) adds brief noise events that are <strong>scheduled and infrequent</strong></li>
+              <li><strong>Sound barriers, acoustic enclosures, and vegetation buffers</strong> are standard mitigation tools</li>
+              <li><strong>Thoughtful site selection</strong> — distance from residential areas — is the single most effective safeguard</li>
+              <li>Many communities near established data centers report facilities are <strong>barely noticeable day-to-day</strong></li>
+            </ul>
+            <div class="safeguard-box">
+              <span class="safeguard-label">Community Safeguard</span>
+              <p style="margin:0 0 10px">Independent noise impact studies should be completed before approval, with enforceable decibel limits at property lines built into the development agreement.</p>
+              <a href="https://www.reddit.com/r/nova/comments/1q67c31/can_you_hear_data_centers/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);font-size:13px;font-weight:600;text-decoration:none">Read what Northern Virginia residents say on Reddit ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emissions -->
+      <div class="concern-card">
+        <div class="concern-card-inner" style="border-left-color:#f59e0b">
+          <div class="concern-header">
+            <span class="concern-label" style="color:#f59e0b">Emissions</span>
+            <h2 class="concern-title">Backup Generators &amp; Air Quality</h2>
+          </div>
+          <div class="concern-body dark-prose">
+            <p><strong style="color:#e2e8f0">The Concern:</strong> Large facilities maintain diesel generators as backup power. The answers are more reassuring than the concern might suggest.</p>
+            <p><strong style="color:#e2e8f0">What We Found:</strong></p>
+            <ul>
+              <li>Backup generators exist for <strong>emergencies and scheduled monthly tests</strong> — they are <strong>not running continuously</strong></li>
+              <li>Generators must meet <a href="https://www.epa.gov/stationary-sources-air-pollution/diesel-engines-stationary-sources" target="_blank" rel="noopener noreferrer"><strong>EPA emission standards</strong></a></li>
+              <li>Modern <strong>tier-4 engines</strong> produce <strong>dramatically lower emissions</strong> than older models</li>
+              <li>Data centers in Ashburn, VA have operated <strong>without measurable community air quality impacts for decades</strong></li>
+            </ul>
+            <div class="safeguard-box">
+              <span class="safeguard-label">Community Safeguard</span>
+              <p style="margin:0">Air quality monitoring during construction and operation can be made a binding requirement in the development agreement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fire Risk -->
+      <div class="concern-card">
+        <div class="concern-card-inner" style="border-left-color:#ef4444">
+          <div class="concern-header">
+            <span class="concern-label" style="color:#ef4444">Fire Risk</span>
+            <h2 class="concern-title">Fire Risk from Batteries &amp; Equipment</h2>
+          </div>
+          <div class="concern-body dark-prose">
+            <p><strong style="color:#e2e8f0">The Concern:</strong> Questions about battery fire safety are completely reasonable — and the industry has invested heavily in exactly this problem.</p>
+            <p><strong style="color:#e2e8f0">What We Found:</strong></p>
+            <ul>
+              <li><a href="https://www.nfpa.org/codes-and-standards/nfpa-855-standard-for-the-installation-of-stationary-energy-storage-systems/free-access" target="_blank" rel="noopener noreferrer"><strong>NFPA 855</strong></a> and <a href="https://www.ul.com/services/ul-9540a-test-method" target="_blank" rel="noopener noreferrer"><strong>UL 9540A</strong></a> set <strong>rigorous safety standards</strong> — not optional guidelines but enforceable code requirements</li>
+              <li>Modern facilities include <strong>dedicated fire suppression systems</strong> designed specifically for battery fires</li>
+              <li>Data center operators <strong>work closely with local fire departments before opening</strong></li>
+              <li>The industry's track record across <strong>thousands of facilities worldwide</strong> demonstrates that proper engineering controls work</li>
+            </ul>
+            <div class="safeguard-box">
+              <span class="safeguard-label">Community Safeguard</span>
+              <p style="margin:0">Fire safety requirements — including on-site suppression systems, emergency response planning, and fire department coordination — should be written into the development agreement before approval.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Impact -->
+      <div class="concern-card">
+        <div class="concern-card-inner" style="border-left-color:#a78bfa">
+          <div class="concern-header">
+            <span class="concern-label" style="color:#a78bfa">Visual Impact</span>
+            <h2 class="concern-title">Visual Impact &amp; Property Values</h2>
+          </div>
+          <div class="concern-body dark-prose">
+            <p><strong style="color:#e2e8f0">The Concern:</strong> Questions about facility appearance and property values are completely understandable.</p>
+            <p><strong style="color:#e2e8f0">What We Found:</strong></p>
+            <ul>
+              <li><strong>Ashburn, Virginia</strong> — the data center capital of the world with 100–200 facilities — is <strong>one of the most desirable places to live in the country</strong></li>
+              <li><a href="https://schar.gmu.edu/news/2025-11/study-home-prices-are-higher-when-house-near-data-center" target="_blank" rel="noopener noreferrer">A 2025 George Mason University study</a> found <strong>homes near data centers sell at higher prices</strong></li>
+              <li>Modern data centers are often built with <strong>landscaping, setbacks, and architectural standards</strong></li>
+              <li><strong>Lighting can be designed to be directional and shielded</strong> — a standard requirement in well-written development agreements</li>
+            </ul>
+            <div class="safeguard-box">
+              <span class="safeguard-label">Community Safeguard</span>
+              <p style="margin:0">Architectural standards, landscaping requirements, and lighting restrictions should be written into zoning and development agreements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dark-card mt-8" style="padding:24px">
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;text-transform:uppercase;color:#fff;margin-bottom:10px">The Bottom Line: Questions Are Good. The Answers Are Reassuring.</h3>
+      <p class="section-subtitle" style="margin-bottom:1rem">Asking hard questions before major decisions is exactly what engaged community members should do.</p>
+      <p class="dark-prose">Data centers have been operating safely in communities across the United States for decades. Ashburn, Virginia has more data centers per square mile than anywhere on earth — and it remains a thriving, sought-after community.</p>
+      <p class="dark-prose" style="margin-top:1rem">El Dorado is <strong style="color:#e2e8f0">not new to evaluating major industry</strong>. The local refinery has been part of this community for decades, employs approximately <strong style="color:#e2e8f0">400 workers</strong>, and has provided long-term economic benefit while operating alongside our community. El Dorado knows how to ask the right questions.</p>
+    </div>
+
+    <div class="info-box" style="margin:2rem 0">
+      <p style="font-weight:700;color:#fff;margin-bottom:6px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase">See What a Data Center Actually Looks Like</p>
+      <p style="color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:10px">Linus Tech Tips toured an Equinix facility — a useful, unbiased reference for understanding what these facilities look like.</p>
+      <a href="https://youtu.be/wumluVRmxyA?si=kCBE3N_O9OecgYn-" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:13px;padding:10px 20px">Watch the Tour on YouTube ↗</a>
+    </div>
+
+    <div class="flex gap-4 flex-wrap mt-10">
+      <a class="btn-accent" data-nav="FAQ" href="#">View FAQ →</a>
+      <a class="btn-outline" data-nav="Home" href="#">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<div class="page" id="page-FAQ">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <span class="page-banner-label">Quick Answers</span>
+      <h1 class="page-banner-title">Frequently Asked Questions</h1>
+      <p style="color:rgba(232,234,246,0.55);margin-top:12px;font-size:15px">Common questions about data center development in El Dorado</p>
+    </div>
+  </div>
+  <div class="container-narrow py-14" id="faq-container">
+    <!-- FAQ rendered by JS -->
+  </div>
+</div>
+
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<div class="page" id="page-About">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <span class="page-banner-label">About</span>
+      <h1 class="page-banner-title">About This Effort</h1>
+    </div>
+  </div>
+  <div class="container-narrow py-14">
+    <div class="dark-prose">
+      <p class="section-subtitle mb-8">This website is created by <a href="https://www.eldorado-inc.com" target="_blank" rel="noopener noreferrer">El Dorado Inc.</a> to support informed public dialogue about potential data center development in El Dorado and Butler County.</p>
+
+      <h2>Our Purpose</h2>
+      <p>Major community decisions work best when residents have access to <strong>clear, balanced information</strong>. This website was created to:</p>
+      <ul>
+        <li>Explain <strong>complex topics in plain language</strong></li>
+        <li>Present <strong>both opportunities and concerns</strong> honestly</li>
+        <li>Provide a <strong>shared reference</strong> for community conversations</li>
+        <li>Acknowledge uncertainty and <strong>update as new information emerges</strong></li>
+      </ul>
+
+      <h2>What This Site Is Not</h2>
+    </div>
+
+    <div class="dark-card" style="padding:24px;margin:24px 0">
+      <p style="color:var(--text-muted);margin:0 0 12px"><strong style="color:#ef4444">✕ Not affiliated with any developer.</strong> This resource is created by El Dorado Inc., not by a data center developer.</p>
+      <p style="color:var(--text-muted);margin:0"><strong style="color:#ef4444">✕ Not a government website.</strong> While we use publicly available information, this is not an official government resource.</p>
+    </div>
+
+    <div class="dark-prose">
+      <h2>Our Principles</h2>
+    </div>
+
+    <div class="grid-3" style="margin:24px 0">
+      <div class="dark-card" style="padding:20px">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent-light);margin-bottom:8px">Balanced</h3>
+        <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">We try to present both potential benefits and legitimate concerns.</p>
+      </div>
+      <div class="dark-card" style="padding:20px">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent-light);margin-bottom:8px">Transparent</h3>
+        <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">We clearly distinguish between known facts, assumptions, and open questions.</p>
+      </div>
+      <div class="dark-card" style="padding:20px">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent-light);margin-bottom:8px">Community-Focused</h3>
+        <p style="color:var(--text-muted);font-size:14px;line-height:1.65;margin:0">Our goal is to inform our community of the potential impact of a data center.</p>
+      </div>
+    </div>
+
+    <p style="color:var(--text-faint);font-size:12px;font-style:italic;margin-top:1.5rem;line-height:1.65">This website uses publicly available information and makes reasonable assumptions where noted. It is not legal, financial, or professional advice. For official information, please contact your local government representatives.</p>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-bg"></div>
+  <div class="footer-overlay"></div>
+  <div class="footer-content">
+    <div style="margin-bottom:20px"><img src="logo.png" alt="El Dorado Data Center Impact" style="height:24px;width:auto;display:block;margin:0 auto;" /></div>
+    <p class="footer-desc">Website created by <a href="https://www.eldorado-inc.com" target="_blank" rel="noopener noreferrer">El Dorado Inc.</a> to provide fact-based information about potential data center development in El Dorado, Kansas.</p>
+    <div class="footer-divider">
+      <p class="footer-legal">This is an information resource created by <a href="https://www.eldorado-inc.com" target="_blank" rel="noopener noreferrer">El Dorado Inc.</a> Not affiliated with any developer or government entity.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── FAQ DATA ──
+const faqSections = [
+  {
+    category: "Land Use & Zoning",
+    faqs: [
+      { q: "What zoning changes or variances are being requested?", a: `<ul><li>No zoning changes have been approved or granted.</li><li>Any proposal must either comply with existing zoning or go through a <strong>public rezoning or Special Use Permit process</strong>.</li><li>Under Kansas law (K.S.A. 12-741 et seq.), zoning decisions are <strong>locally controlled</strong> and require: <ul><li>Planning Commission review</li><li>Public notice and hearings</li><li>Final approval by the City Commission</li></ul></li><li>The City of El Dorado is currently <strong>defining its standards and process before any project is considered</strong>.</li></ul>` },
+      { q: "Are residential or mixed-use areas being rezoned?", a: `<ul><li><strong>No.</strong> There are <strong>no active rezonings for data centers</strong>.</li><li>Rezoning cannot occur without a landowner application, public notification, and public hearings.</li><li>Compatibility with surrounding land uses is a <strong>legal requirement</strong>.</li></ul>` },
+      { q: "Does this align with the City's long-term plan?", a: `<ul><li>Yes — but only within <strong>existing industrial growth areas</strong>, primarily the northwest corridor.</li><li>The City's long-standing comprehensive plan prioritizes use of <strong>existing industrial land</strong>, leveraging infrastructure assets, and expanding the <strong>commercial/industrial tax base</strong>.</li></ul>` },
+    ]
+  },
+  {
+    category: "Power & Grid Impact",
+    faqs: [
+      { q: "Will data centers strain the grid or cause outages?", a: `<ul><li>No — by design and by regulation.</li><li><strong>Utilities must ensure adequate capacity before service is approved.</strong></li><li>Projects typically require <strong>major infrastructure upgrades</strong> planned in advance and meeting regional grid reliability standards.</li></ul>` },
+      { q: "Who pays for new power infrastructure?", a: `<ul><li>Not the City, and not taxpayers.</li><li>Developers fund required infrastructure through <strong>interconnection agreements</strong>. Costs are borne by the project and utility — not shifted to residents.</li><li>Kansas law also <strong>prohibits preferential electric rates</strong> for large users.</li></ul>` },
+      { q: "Will my electric bill increase?", a: `<ul><li>No.</li><li>Data centers pay full market rates and all infrastructure upgrade costs. They are not subsidized by residential or small business ratepayers.</li></ul>` },
+    ]
+  },
+  {
+    category: "Water Use & Supply",
+    faqs: [
+      { q: "Will data centers use large amounts of water?", a: `<ul><li>It depends on design. Newer facilities increasingly use <strong>air-cooled systems</strong> and <strong>closed-loop systems</strong> that significantly reduce water demand.</li><li>Under Kansas law, projects must submit water use plans, conservation strategies, and operational disclosures.</li></ul>` },
+      { q: "Where would the water come from?", a: `<ul><li>Primary source: <strong>El Dorado Reservoir</strong>, for which the City holds water rights.</li><li>Options include treated water, raw water via existing infrastructure, and reclaimed wastewater.</li></ul>` },
+      { q: "Will this affect lake levels or drought resilience?", a: `<ul><li>The lake has remained <strong>full or near full ~89% of the time since 1995</strong>.</li><li>The City has ~10 million gallons/day allocated for industrial growth and additional long-term capacity identified through studies.</li><li><strong>Residential supply is legally and operationally prioritized first.</strong></li></ul>` },
+    ]
+  },
+  {
+    category: "Environmental Impact",
+    faqs: [
+      { q: "Are environmental reviews required?", a: `<ul><li>Yes. Projects must comply with state environmental permitting and federal regulations (Clean Air Act, Clean Water Act).</li><li>Kansas has added <strong>heightened scrutiny for large-scale data infrastructure</strong> through recent legislation.</li></ul>` },
+      { q: "What about emissions and noise?", a: `<ul><li><strong>Data centers are low-emission facilities</strong> compared to traditional industry.</li><li>Backup generators are rarely used and must meet strict air quality standards.</li><li>Noise is typically comparable to or less than highway traffic, managed through setbacks and sound attenuation design.</li></ul>` },
+    ]
+  },
+  {
+    category: "Economic Impact",
+    faqs: [
+      { q: "Do data centers create jobs?", a: `<ul><li>Fewer — but higher-quality jobs: skilled, technical positions with strong wages and benefits.</li><li>Most importantly: significant <strong>construction employment</strong> and workforce partnerships with <strong>community colleges and technical schools</strong>.</li></ul>` },
+      { q: "What incentives are being offered?", a: `<ul><li>No local incentives have been approved or offered.</li><li>Any local incentives must be publicly reviewed and approved.</li><li>At the state level, Kansas provides <strong>sales tax exemptions on data center equipment</strong>, similar to other large capital investments. These are <strong>performance-based and time-limited</strong>.</li></ul>` },
+      { q: "What does the community get long-term?", a: `<ul><li>Revenue streams include: property taxes (especially after abatements expire), utility franchise fees, and water sales.</li><li>Data centers represent <strong>30+ year capital investments</strong>, not short-term operations.</li></ul>` },
+    ]
+  },
+  {
+    category: "Infrastructure & Public Cost",
+    faqs: [
+      { q: "Will taxpayers fund roads or infrastructure?", a: `<ul><li>No.</li><li>Kansas law allows cities to structure development so that infrastructure costs are assigned to the project via development agreements, special assessments, or utility agreements.</li></ul>` },
+    ]
+  },
+  {
+    category: "Risk & Emergency Preparedness",
+    faqs: [
+      { q: "Are these facilities safe?", a: `<ul><li>Yes. Data centers are designed with advanced fire suppression systems, redundant power systems, and compartmentalized building design.</li><li>El Dorado also benefits from existing industrial emergency response capacity and regional training partnerships.</li></ul>` },
+    ]
+  },
+  {
+    category: "Community Oversight & Accountability",
+    faqs: [
+      { q: "Will the public have a voice?", a: `<ul><li>Yes — multiple times: zoning hearings, incentive approvals, development agreements.</li><li><strong>These are legally required public processes.</strong></li></ul>` },
+      { q: "What if promises aren't kept?", a: `<ul><li>Development agreements typically include <strong>clawback provisions</strong>, performance benchmarks, and enforceable obligations.</li><li>The goal: <strong>protect the public and eliminate financial risk</strong>.</li></ul>` },
+    ]
+  },
+  {
+    category: "EMF (Electromagnetic Fields)",
+    faqs: [
+      { q: "Do data centers produce electromagnetic fields (EMFs)?", a: `<ul><li>Yes, but so does any building that uses electricity. <strong>Homes, schools, hospitals, and office buildings</strong> all produce EMFs. Data centers are not unique in that regard.</li></ul>` },
+      { q: "Are EMFs from data centers dangerous to nearby residents?", a: `<ul><li><strong>No.</strong> Decades of research from major health organizations have found <strong>no conclusive evidence</strong> that low-level EMF exposure causes health issues.</li><li>Levels outside of facilities are <strong>very low and within normal background ranges</strong>.</li></ul>` },
+      { q: "How far do EMFs travel from a data center?", a: `<ul><li>EMFs <strong>drop off very quickly with distance</strong>. The strongest levels are right next to electrical equipment.</li><li>By the time you reach the <strong>property line</strong>, levels are <strong>minimal</strong>.</li></ul>` },
+      { q: "Will a data center increase EMF exposure in the neighborhood?", a: `<ul><li>Considering <strong>buffer zones and distance requirements</strong>, no. EMF levels outside the facility are comparable to everyday sources like <strong>household wiring, appliances, and nearby power lines</strong>.</li></ul>` },
+      { q: "How are EMFs managed or controlled in data centers?", a: `<ul><li>Equipment is housed inside buildings with <strong>proper grounding and shielding</strong>.</li><li>Facilities are engineered to meet <strong>strict electrical and safety standards</strong>.</li></ul>` },
+    ]
+  },
+  {
+    category: "Wildlife & Birds",
+    faqs: [
+      { q: "Do data centers drive away wildlife?", a: `<ul><li>Not in any unique way. Data centers are similar to other <strong>commercial or light industrial buildings</strong>.</li><li>Data centers are typically <strong>low-traffic, enclosed facilities</strong>, which often result in <strong>less ongoing disturbance</strong> than many other uses.</li></ul>` },
+      { q: "Do data centers impact migratory bird patterns?", a: `<ul><li><strong>There is no evidence</strong> that data centers disrupt migratory bird patterns.</li><li>Birds are far more influenced by large-scale factors like <strong>habitat loss, weather, and major structures</strong> such as tall buildings or wind turbines.</li></ul>` },
+      { q: "What about lighting at data centers? Does it affect birds?", a: `<ul><li>Modern facilities use <strong>downward-directed, shielded lighting</strong> designed to minimize light pollution.</li><li>This is standard practice and helps <strong>reduce any potential impact on wildlife</strong>.</li></ul>` },
+    ]
+  },
+  {
+    category: "Big Picture",
+    faqs: [
+      { q: "Who benefits — and what are the tradeoffs?", a: `<p><strong style="color:#e2e8f0">Benefits:</strong></p><ul><li>Strengthened local tax base</li><li>Reduced reliance on residential property taxes</li><li>New revenue from water and utilities</li><li>Workforce development and technical career pathways</li><li>Investment in regional infrastructure (power, fiber, etc.)</li></ul><p style="margin-top:12px"><strong style="color:#e2e8f0">Tradeoffs:</strong></p><ul><li>Use of industrial land, water, and power resources</li><li>Visual and land-use change in designated industrial areas</li></ul>` },
+      { q: "Why El Dorado?", a: `<p style="margin-bottom:8px">El Dorado is being considered because it already has the assets required — without displacing neighborhoods:</p><ul><li><strong>Land:</strong> Over 1,000 acres of industrial/brownfield property</li><li><strong>Water:</strong> Existing surplus capacity already planned for industrial use</li><li><strong>Power:</strong> Proximity to major transmission infrastructure</li><li><strong>Location:</strong> Rail and highway access</li></ul>` },
+      { q: "Why is this happening now?", a: `<ul><li>Federal policy — including the <strong>Inflation Reduction Act</strong> and <strong>CHIPS and Science Act</strong> — is driving domestic technology infrastructure, data security and resilience, and energy and grid investment.</li><li>Data centers are part of national security infrastructure and broadband/cloud backbone systems.</li><li>Communities that can support this infrastructure are being evaluated nationwide.</li></ul>` },
+      { q: "What is El Dorado actually committing to?", a: `<p style="margin-bottom:8px">El Dorado is <strong>not committing to any project today</strong>. What is happening now is <strong>due diligence</strong>: establishing rules, understanding impacts, and ensuring legal and financial protections.</p><p style="margin-bottom:8px">If a project is proposed, it will only move forward if it meets all legal requirements, protects local resources, and provides clear, long-term benefit to the community.</p><p><strong>Bottom line:</strong> This is about whether <strong>any specific proposal</strong> meets the standards that El Dorado residents expect — and require by law.</p>` },
+    ]
+  },
+];
+
+// ── RENDER FAQ ──
+function renderFAQ() {
+  const container = document.getElementById('faq-container');
+  let html = '<div class="space-y-8">';
+  faqSections.forEach((section, si) => {
+    html += `<div>
+      <div style="margin-bottom:20px">
+        <h2 class="faq-section-title">${section.category}</h2>
+        <div class="faq-rule"></div>
+      </div>
+      <div class="dark-card" style="overflow:hidden">`;
+    section.faqs.forEach((faq, fi) => {
+      const id = `faq-${si}-${fi}`;
+      html += `<div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ('${id}', this)">
+          <span class="faq-question-text">${faq.q}</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-answer" id="${id}">${faq.a}</div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function toggleFAQ(id, btn) {
+  const answer = document.getElementById(id);
+  const isOpen = answer.classList.contains('open');
+  answer.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+renderFAQ();
+
+// ── NAVIGATION ──
+const pages = ['Home','WhyThisMatters','TaxAbatements','Infrastructure','CommunityConcerns','FAQ','About'];
+
+function navigateTo(pageName) {
+  // Hide all pages
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) el.classList.remove('active');
+  });
+  // Show target
+  const target = document.getElementById('page-' + pageName);
+  if (target) target.classList.add('active');
+
+  // Update nav links
+  document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+    link.classList.toggle('active', link.dataset.nav === pageName);
+  });
+
+  // Scroll to top
+  window.scrollTo(0, 0);
+
+  // Close mobile menu
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// Attach nav click handlers
+document.addEventListener('click', function(e) {
+  const el = e.target.closest('[data-nav]');
+  if (el) {
+    e.preventDefault();
+    navigateTo(el.dataset.nav);
+  }
+});
+
+// ── HAMBURGER ──
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+});
+
+// ── SCROLL HEADER ──
+window.addEventListener('scroll', function() {
+  document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 40);
+});
+</script>
+</body>
 </html>
