@@ -32,7 +32,7 @@
 
   a { color: var(--accent-light); }
 
-  /* â”€â”€ HEADER â”€â”€ */
+  /* ── HEADER ── */
   .site-header {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
@@ -99,14 +99,14 @@
     .hamburger { display: flex; align-items: center; }
   }
 
-  /* â”€â”€ PAGES â”€â”€ */
+  /* ── PAGES ── */
   .page { display: none; }
   .page.active { display: block; }
 
-  /* â”€â”€ PAGE MAIN â”€â”€ */
+  /* ── PAGE MAIN ── */
   .page-main { padding-top: 72px; background: var(--bg); min-height: 100vh; }
 
-  /* â”€â”€ HERO â”€â”€ */
+  /* ── HERO ── */
   .hero {
     position: relative; overflow: hidden;
     min-height: 90vh; display: flex; align-items: center;
@@ -126,7 +126,7 @@
   .hero-content { position: relative; max-width: 1280px; margin: 0 auto; padding: 8rem 24px 4rem; }
   .hero-inner { max-width: 640px; }
 
-  /* â”€â”€ PAGE BANNER â”€â”€ */
+  /* ── PAGE BANNER ── */
   .page-banner {
     padding: 80px 0 60px;
     background: linear-gradient(180deg, #0a0b20 0%, #06060f 100%);
@@ -151,11 +151,11 @@
     color: #fff; line-height: 1.1; margin: 0;
   }
 
-  /* â”€â”€ CONTAINERS â”€â”€ */
+  /* ── CONTAINERS ── */
   .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
   .container-narrow { max-width: 896px; margin: 0 auto; padding: 0 24px; }
 
-  /* â”€â”€ TYPOGRAPHY â”€â”€ */
+  /* ── TYPOGRAPHY ── */
   .section-label {
     font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
     color: var(--accent-light); display: block; margin-bottom: 12px;
@@ -169,7 +169,7 @@
   .section-subtitle { color: var(--text-muted); font-size: 16px; line-height: 1.7; }
   .accent-rule { display: block; width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 20px; }
 
-  /* â”€â”€ CARDS â”€â”€ */
+  /* ── CARDS ── */
   .dark-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -186,7 +186,7 @@
   .dark-card-header.clickable:hover { opacity: 0.85; }
   .dark-card-body { padding: 24px; }
 
-  /* â”€â”€ BUTTONS â”€â”€ */
+  /* ── BUTTONS ── */
   .btn-accent {
     display: inline-flex; align-items: center; justify-content: center;
     padding: 12px 28px; border-radius: 10px;
@@ -206,7 +206,7 @@
   }
   .btn-outline:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); }
 
-  /* â”€â”€ DARK PROSE â”€â”€ */
+  /* ── DARK PROSE ── */
   .dark-prose { color: var(--text-muted); }
   .dark-prose h2 {
     font-family: 'Barlow Condensed', sans-serif;
@@ -221,7 +221,7 @@
   .dark-prose a:hover { color: #fff; }
   .dark-prose strong { color: #e2e8f0; }
 
-  /* â”€â”€ TABLE â”€â”€ */
+  /* ── TABLE ── */
   .dark-table { width: 100%; border-collapse: collapse; font-size: 14px; }
   .dark-table th {
     background: rgba(91,127,255,0.12); color: var(--accent-light);
@@ -232,7 +232,7 @@
   .dark-table tr:last-child td { border-bottom: none; }
   .dark-table tr:hover td { background: rgba(255,255,255,0.02); }
 
-  /* â”€â”€ GRID â”€â”€ */
+  /* ── GRID ── */
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   @media (max-width: 640px) {
@@ -242,7 +242,7 @@
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* â”€â”€ FOOTER â”€â”€ */
+  /* ── FOOTER ── */
   .site-footer { position: relative; overflow: hidden; }
   .footer-bg {
     position: absolute; inset: 0; background-size: cover; background-position: center;
@@ -262,7 +262,7 @@
   .footer-divider { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; }
   .footer-legal { font-size: 12px; color: rgba(255,255,255,0.28); }
 
-  /* â”€â”€ UTILITY â”€â”€ */
+  /* ── UTILITY ── */
   .space-y-6 > * + * { margin-top: 24px; }
   .space-y-8 > * + * { margin-top: 32px; }
   .mt-6 { margin-top: 24px; }
@@ -284,7 +284,7 @@
   .gap-5 { gap: 20px; }
   .text-center { text-align: center; }
 
-  /* â”€â”€ INFO BOX â”€â”€ */
+  /* ── INFO BOX ── */
   .info-box {
     background: rgba(91,127,255,0.07);
     border: 1px solid rgba(91,127,255,0.2);
@@ -296,7 +296,7 @@
     display: block; margin-bottom: 8px;
   }
 
-  /* â”€â”€ STAT CARD â”€â”€ */
+  /* ── STAT CARD ── */
   .stat-card {
     background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px;
   }
@@ -310,7 +310,7 @@
   }
   .stat-note { font-size: 12px; color: var(--text-muted); }
 
-  /* â”€â”€ FAQ â”€â”€ */
+  /* ── FAQ ── */
   .faq-section-title {
     font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem;
     font-weight: 700; text-transform: uppercase; color: #fff;
@@ -341,7 +341,7 @@
   .faq-answer strong { color: #e2e8f0; }
   .faq-answer a { color: var(--accent-light); }
 
-  /* â”€â”€ CONCERN CARD â”€â”€ */
+  /* ── CONCERN CARD ── */
   .concern-card { border-radius: 14px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); }
   .concern-card-inner { border-left-width: 3px; border-left-style: solid; }
   .concern-header { padding: 16px 24px; display: flex; align-items: center; gap: 12px; background: var(--bg-card-2); border-bottom: 1px solid var(--border); }
@@ -357,7 +357,7 @@
     text-transform: uppercase; color: var(--accent-light); display: block; margin-bottom: 4px;
   }
 
-  /* â”€â”€ HERO BUTTONS â”€â”€ */
+  /* ── HERO BUTTONS ── */
   .hero-btns { display: flex; flex-wrap: wrap; gap: 16px; }
 
   /* commitment section */
@@ -412,7 +412,7 @@
 
 
 <main class="page-main">
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• COMMUNITY CONCERNS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════ COMMUNITY CONCERNS ═══════════════ -->
 <div class="page active">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -421,7 +421,7 @@
     </div>
   </div>
   <div class="container-narrow py-14">
-    <p class="section-subtitle mb-10">Residents have raised serious, legitimate concerns about noise, safety, emissions, and quality of life â€” and those concerns deserve honest answers.</p>
+    <p class="section-subtitle mb-10">Residents have raised serious, legitimate concerns about noise, safety, emissions, and quality of life — and those concerns deserve honest answers. The good news is that data centers have been operating safely in communities across the country for decades. With the right requirements in place, these concerns are manageable. Here's what we've found, what protections exist, and what El Dorado's leadership should ensure are in place before any project moves forward.</p>
 
     <div class="space-y-6">
       <!-- Water -->
@@ -435,11 +435,11 @@
             <p><strong style="color:#e2e8f0">The Concern:</strong> Water usage is a topic worth understanding, and El Dorado is well positioned to address it.</p>
             <p><strong style="color:#e2e8f0">What We Found:</strong></p>
             <ul>
-              <li>El Dorado has <a href="https://www.developeldorado.com/industrial-water" target="_blank" rel="noopener noreferrer">approximately <strong>10 million gallons per day</strong> of industrial water capacity</a> specifically earmarked for large industrial users â€” backed by El Dorado Reservoir and a <a href="https://www.eldoks.gov/340/El-Dorado-Regional-Water-Supply" target="_blank" rel="noopener noreferrer">direct contract with the U.S. Army Corps of Engineers</a></li>
+              <li>El Dorado has <a href="https://www.developeldorado.com/industrial-water" target="_blank" rel="noopener noreferrer">approximately <strong>10 million gallons per day</strong> of industrial water capacity</a> specifically earmarked for large industrial users — backed by El Dorado Reservoir and a <a href="https://www.eldoks.gov/340/El-Dorado-Regional-Water-Supply" target="_blank" rel="noopener noreferrer">direct contract with the U.S. Army Corps of Engineers</a></li>
               <li>Modern cooling systems increasingly use <strong>closed-loop designs</strong> that recirculate water, <strong>reducing the rate of fresh water consumption</strong></li>
-              <li>Water discharged from the cooling loop is <strong>properly treated before release</strong> â€” similar to how a municipal wastewater treatment plant operates</li>
+              <li>Water discharged from the cooling loop is <strong>properly treated before release</strong> — similar to how a municipal wastewater treatment plant operates</li>
               <li>Treated discharge can be safely released or made available for reuse in other industrial applications, minimizing waste</li>
-              <li>This infrastructure and capacity was <strong>designed with large industrial users in mind</strong> â€” not as an afterthought</li>
+              <li>This infrastructure and capacity was <strong>designed with large industrial users in mind</strong> — not as an afterthought</li>
             </ul>
             <div class="safeguard-box">
               <span class="safeguard-label">Community Safeguard</span>
@@ -457,19 +457,19 @@
             <h2 class="concern-title">Noise from Cooling Systems &amp; Generators</h2>
           </div>
           <div class="concern-body dark-prose">
-            <p><strong style="color:#e2e8f0">The Concern:</strong> Large HVAC systems and backup generators can produce noise, and that's a fair thing to ask about. For residents near a facility, this deserves a clear answer â€” not a dismissal.</p>
+            <p><strong style="color:#e2e8f0">The Concern:</strong> Large HVAC systems and backup generators can produce noise, and that's a fair thing to ask about. For residents near a facility, this deserves a clear answer — not a dismissal.</p>
             <p><strong style="color:#e2e8f0">What We Found:</strong></p>
             <ul>
               <li>Cooling equipment runs 24/7 and produces ambient noise; <strong>modern acoustic engineering</strong> has made significant advances in reducing this</li>
               <li>Generator testing (typically <strong>monthly</strong>) adds brief noise events, but these are <strong>scheduled and infrequent</strong></li>
               <li><strong>Sound barriers, acoustic enclosures, and vegetation buffers</strong> are standard mitigation tools used at facilities nationwide</li>
-              <li><strong>Thoughtful site selection</strong> â€” distance from residential areas â€” is the single most effective safeguard</li>
+              <li><strong>Thoughtful site selection</strong> — distance from residential areas — is the single most effective safeguard</li>
               <li>Many communities near established data centers report the facilities are <strong>barely noticeable day-to-day</strong></li>
             </ul>
             <div class="safeguard-box">
               <span class="safeguard-label">Community Safeguard</span>
-              <p style="margin:0 0 10px">Independent noise impact studies should be completed before approval, with enforceable decibel limits at property lines built into the development agreement. These are standard practices that responsible developers expect and accept. Residents of Northern Virginia's data center corridor have shared their first-hand experiences on Reddit â€” the consensus is that facilities are largely inaudible from nearby neighborhoods.</p>
-              <a href="https://www.reddit.com/r/nova/comments/1q67c31/can_you_hear_data_centers/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);font-size:13px;font-weight:600;text-decoration:none">Read what Northern Virginia residents say on Reddit â†—</a>
+              <p style="margin:0 0 10px">Independent noise impact studies should be completed before approval, with enforceable decibel limits at property lines built into the development agreement. These are standard practices that responsible developers expect and accept. Residents of Northern Virginia's data center corridor have shared their first-hand experiences on Reddit — the consensus is that facilities are largely inaudible from nearby neighborhoods.</p>
+              <a href="https://www.reddit.com/r/nova/comments/1q67c31/can_you_hear_data_centers/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);font-size:13px;font-weight:600;text-decoration:none">Read what Northern Virginia residents say on Reddit ↗</a>
             </div>
           </div>
         </div>
@@ -483,18 +483,18 @@
             <h2 class="concern-title">Backup Generators &amp; Air Quality</h2>
           </div>
           <div class="concern-body dark-prose">
-            <p><strong style="color:#e2e8f0">The Concern:</strong> Large facilities maintain diesel generators as backup power. This is a reasonable thing to understand â€” and the answers are more reassuring than the concern might suggest.</p>
+            <p><strong style="color:#e2e8f0">The Concern:</strong> Large facilities maintain diesel generators as backup power. This is a reasonable thing to understand — and the answers are more reassuring than the concern might suggest.</p>
             <p><strong style="color:#e2e8f0">What We Found:</strong></p>
             <ul>
-              <li>Backup generators exist for <strong>emergencies and scheduled monthly tests</strong> â€” they are <strong>not running continuously</strong></li>
+              <li>Backup generators exist for <strong>emergencies and scheduled monthly tests</strong> — they are <strong>not running continuously</strong></li>
               <li>Generators must meet <a href="https://www.epa.gov/stationary-sources-air-pollution/diesel-engines-stationary-sources" target="_blank" rel="noopener noreferrer"><strong>EPA emission standards</strong></a>; permit requirements are enforceable by state regulators</li>
               <li>Modern <strong>tier-4 engines</strong> produce <strong>dramatically lower emissions</strong> than older models</li>
               <li>Fuel storage is regulated under <strong>fire and environmental codes</strong> that are strictly enforced</li>
-              <li>Data centers operating in places like <strong>Ashburn, Virginia</strong> â€” surrounded by homes, schools, and businesses â€” have done so <strong>without measurable community air quality impacts for decades</strong></li>
+              <li>Data centers operating in places like <strong>Ashburn, Virginia</strong> — surrounded by homes, schools, and businesses — have done so <strong>without measurable community air quality impacts for decades</strong></li>
             </ul>
             <div class="safeguard-box">
               <span class="safeguard-label">Community Safeguard</span>
-              <p style="margin:0">Air quality monitoring during construction and operation can be made a binding requirement in the development agreement â€” and should be. This is a reasonable ask that responsible developers readily accommodate.</p>
+              <p style="margin:0">Air quality monitoring during construction and operation can be made a binding requirement in the development agreement — and should be. This is a reasonable ask that responsible developers readily accommodate.</p>
             </div>
           </div>
         </div>
@@ -508,18 +508,18 @@
             <h2 class="concern-title">Fire Risk from Batteries &amp; Equipment</h2>
           </div>
           <div class="concern-body dark-prose">
-            <p><strong style="color:#e2e8f0">The Concern:</strong> Questions about battery fire safety are completely reasonable â€” and the industry has invested heavily in exactly this problem. Modern data centers are built with robust, layered safety systems that address this directly.</p>
+            <p><strong style="color:#e2e8f0">The Concern:</strong> Questions about battery fire safety are completely reasonable — and the industry has invested heavily in exactly this problem. Modern data centers are built with robust, layered safety systems that address this directly.</p>
             <p><strong style="color:#e2e8f0">What We Found:</strong></p>
             <ul>
-              <li><a href="https://www.nfpa.org/codes-and-standards/nfpa-855-standard-for-the-installation-of-stationary-energy-storage-systems/free-access" target="_blank" rel="noopener noreferrer"><strong>NFPA 855</strong></a> and <a href="https://www.ul.com/services/ul-9540a-test-method" target="_blank" rel="noopener noreferrer"><strong>UL 9540A</strong></a> set <strong>rigorous safety standards</strong> for battery systems â€” these are <strong>not optional guidelines</strong> but enforceable code requirements</li>
+              <li><a href="https://www.nfpa.org/codes-and-standards/nfpa-855-standard-for-the-installation-of-stationary-energy-storage-systems/free-access" target="_blank" rel="noopener noreferrer"><strong>NFPA 855</strong></a> and <a href="https://www.ul.com/services/ul-9540a-test-method" target="_blank" rel="noopener noreferrer"><strong>UL 9540A</strong></a> set <strong>rigorous safety standards</strong> for battery systems — these are <strong>not optional guidelines</strong> but enforceable code requirements</li>
               <li>Modern facilities include <strong>dedicated fire suppression systems</strong> designed specifically for battery fires, <strong>independent of municipal response</strong></li>
-              <li>Data center operators <strong>work closely with local fire departments before opening</strong> â€” training and familiarization tours are standard practice</li>
+              <li>Data center operators <strong>work closely with local fire departments before opening</strong> — training and familiarization tours are standard practice</li>
               <li>The industry's track record across <strong>thousands of facilities worldwide</strong> demonstrates that proper engineering controls work</li>
               <li>Any development agreement should specify <strong>coordination with the local fire marshal</strong> and include funding for any needed training or equipment</li>
             </ul>
             <div class="safeguard-box">
               <span class="safeguard-label">Community Safeguard</span>
-              <p style="margin:0">Fire safety requirements â€” including on-site suppression systems, emergency response planning, and fire department coordination â€” should be written into the development agreement before approval. These are well-established requirements that reputable operators already expect.</p>
+              <p style="margin:0">Fire safety requirements — including on-site suppression systems, emergency response planning, and fire department coordination — should be written into the development agreement before approval. These are well-established requirements that reputable operators already expect.</p>
             </div>
           </div>
         </div>
@@ -536,15 +536,15 @@
             <p><strong style="color:#e2e8f0">The Concern:</strong> Questions about facility appearance and property values are completely understandable. The evidence from communities that have lived alongside data centers for years is actually quite encouraging.</p>
             <p><strong style="color:#e2e8f0">What We Found:</strong></p>
             <ul>
-              <li><strong>Ashburn, Virginia</strong> â€” the data center capital of the world with 100â€“200 facilities â€” is <strong>one of the most desirable places to live in the country</strong>. It is not a ghost town.</li>
-              <li><a href="https://schar.gmu.edu/news/2025-11/study-home-prices-are-higher-when-house-near-data-center" target="_blank" rel="noopener noreferrer">A 2025 George Mason University study</a> found <strong>homes near data centers sell at higher prices</strong> â€” attributed to the strong infrastructure data centers require, which benefits surrounding neighborhoods</li>
-              <li><a href="https://youtu.be/wumluVRmxyA?si=kCBE3N_O9OecgYn-" target="_blank" rel="noopener noreferrer">Viewers of the Linus Tech Tips Equinix facility tour</a> frequently comment in surprise at how <strong>understated and quiet</strong> the facilities appear â€” many data centers are <strong>designed to blend into their surroundings</strong></li>
+              <li><strong>Ashburn, Virginia</strong> — the data center capital of the world with 100–200 facilities — is <strong>one of the most desirable places to live in the country</strong>. It is not a ghost town.</li>
+              <li><a href="https://schar.gmu.edu/news/2025-11/study-home-prices-are-higher-when-house-near-data-center" target="_blank" rel="noopener noreferrer">A 2025 George Mason University study</a> found <strong>homes near data centers sell at higher prices</strong> — attributed to the strong infrastructure data centers require, which benefits surrounding neighborhoods</li>
+              <li><a href="https://youtu.be/wumluVRmxyA?si=kCBE3N_O9OecgYn-" target="_blank" rel="noopener noreferrer">Viewers of the Linus Tech Tips Equinix facility tour</a> frequently comment in surprise at how <strong>understated and quiet</strong> the facilities appear — many data centers are <strong>designed to blend into their surroundings</strong></li>
               <li>Modern data centers are often built with <strong>landscaping, setbacks, and architectural standards</strong> that make them far less visually intrusive than other industrial uses</li>
-              <li><strong>Lighting can be designed to be directional and shielded</strong> â€” this is a standard requirement in well-written development agreements</li>
+              <li><strong>Lighting can be designed to be directional and shielded</strong> — this is a standard requirement in well-written development agreements</li>
             </ul>
             <div class="safeguard-box">
               <span class="safeguard-label">Community Safeguard</span>
-              <p style="margin:0">Architectural standards, landscaping requirements, and lighting restrictions should be written into zoning and development agreements. These are straightforward requirements that responsible developers expect â€” and the Ashburn example shows communities can thrive alongside data centers when development is thoughtfully handled.</p>
+              <p style="margin:0">Architectural standards, landscaping requirements, and lighting restrictions should be written into zoning and development agreements. These are straightforward requirements that responsible developers expect — and the Ashburn example shows communities can thrive alongside data centers when development is thoughtfully handled.</p>
             </div>
           </div>
         </div>
@@ -553,20 +553,20 @@
 
     <div class="dark-card mt-8" style="padding:24px">
       <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;text-transform:uppercase;color:#fff;margin-bottom:10px">The Bottom Line: Questions Are Good. The Answers Are Reassuring.</h3>
-      <p class="section-subtitle" style="margin-bottom:1rem">Asking hard questions before major decisions is exactly what engaged community members should do â€” and El Dorado's leadership is committed to doing the same.</p>
-      <p class="dark-prose">Data centers have been operating safely in communities across the United States for decades. Ashburn, Virginia has more data centers per square mile than anywhere on earth â€” and it remains a thriving, sought-after community. The concerns raised here are real, but they are also well-understood problems with well-established solutions.</p>
+      <p class="section-subtitle" style="margin-bottom:1rem">Asking hard questions before major decisions is exactly what engaged community members should do — and El Dorado's leadership is committed to doing the same.</p>
+      <p class="dark-prose">Data centers have been operating safely in communities across the United States for decades. Ashburn, Virginia has more data centers per square mile than anywhere on earth — and it remains a thriving, sought-after community. The concerns raised here are real, but they are also well-understood problems with well-established solutions.</p>
       <p class="dark-prose" style="margin-top:1rem">El Dorado is <strong style="color:#e2e8f0">not new to evaluating major industry</strong>. El Dorado has a long history of supporting major industry, including the local refinery, which has been part of this community for decades. When the refinery was established, it brought <strong style="color:#e2e8f0">jobs, investment, and long-term economic growth</strong>. Today, it employs approximately <strong style="color:#e2e8f0">400 workers</strong> and continues to play a significant role in the community and regional economy. Those operations are <strong style="color:#e2e8f0">highly regulated</strong> and have provided long-term economic benefit while operating alongside our community. El Dorado knows how to ask the right questions, set expectations, and ensure projects operate responsibly.</p>
-      <p class="dark-prose" style="margin-top:1rem">El Dorado's community leaders are conducting <strong style="color:#e2e8f0">genuine due diligence</strong>. The goal isn't to rubber-stamp anything â€” it's to ensure the <strong style="color:#e2e8f0">right standards and requirements are in place before opportunities arise</strong>. With proper planning, binding commitments, and responsible development practices, a data center can be a <strong style="color:#e2e8f0">significant long-term asset to El Dorado</strong> without compromising quality of life.</p>
+      <p class="dark-prose" style="margin-top:1rem">El Dorado's community leaders are conducting <strong style="color:#e2e8f0">genuine due diligence</strong>. The goal isn't to rubber-stamp anything — it's to ensure the <strong style="color:#e2e8f0">right standards and requirements are in place before opportunities arise</strong>. With proper planning, binding commitments, and responsible development practices, a data center can be a <strong style="color:#e2e8f0">significant long-term asset to El Dorado</strong> without compromising quality of life.</p>
     </div>
 
     <div class="info-box" style="margin:2rem 0">
       <p style="font-weight:700;color:#fff;margin-bottom:6px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase">See What a Data Center Actually Looks Like</p>
-      <p style="color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:10px">Before forming an opinion about visual impact or facility design, it helps to see what a modern data center actually looks like. Linus Tech Tips toured an Equinix facility â€” a useful, unbiased reference.</p>
-      <a href="https://youtu.be/wumluVRmxyA?si=kCBE3N_O9OecgYn-" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:13px;padding:10px 20px">Watch the Tour on YouTube â†—</a>
+      <p style="color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:10px">Before forming an opinion about visual impact or facility design, it helps to see what a modern data center actually looks like. Linus Tech Tips toured an Equinix facility — a useful, unbiased reference.</p>
+      <a href="https://youtu.be/wumluVRmxyA?si=kCBE3N_O9OecgYn-" target="_blank" rel="noopener noreferrer" class="btn-outline" style="font-size:13px;padding:10px 20px">Watch the Tour on YouTube ↗</a>
     </div>
 
     <div class="flex gap-4 flex-wrap mt-10">
-      <a class="btn-accent" href="faq.html">View FAQ â†’</a>
+      <a class="btn-accent" href="faq.html">View FAQ →</a>
       <a class="btn-outline" href="index.html">Back to Home</a>
     </div>
   </div>
@@ -596,4 +596,5 @@ window.addEventListener('scroll', function() {
 </script>
 </body>
 </html>
+
 
